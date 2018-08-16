@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-acao',
-  templateUrl: './acao.component.html',
-  styleUrls: ['./acao.component.scss']
+  template: `<app-header></app-header>
+  <app-tradutora></app-tradutora>
+  <app-footer></app-footer>`
 })
 export class AcaoComponent implements OnInit {
 
