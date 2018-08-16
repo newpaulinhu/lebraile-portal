@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { rootRouterConfig } from './app.routes';
 import { AppComponent } from './app.component';
+import { AcaoComponent } from './views/acao/acao.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { AppComponent } from './app.component';
     SharedModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false })
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, AcaoComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

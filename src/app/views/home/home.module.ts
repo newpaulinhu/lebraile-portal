@@ -20,12 +20,12 @@ import { SharedModule } from '../../shared/shared.module';
 import { HomeRoutes } from "./home.routing";
 
 import { HomeComponent } from './home.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from '../header/header.component';
 import { IntroComponent } from './intro/intro.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from '../footer/footer.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 
 import { WINDOW_PROVIDERS } from '../../shared/helpers/window.helper';
