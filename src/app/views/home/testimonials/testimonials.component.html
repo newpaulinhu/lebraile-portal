@@ -1,25 +1,26 @@
 <section id="testimonials-section" class="testimonials-section home-section" [ngClass]="{'light-gray': backgroundGray}">
   <div class="container">
     <div class="section-header">
-      <h2>What our customers says</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat unde inventore molestias ab adipisci eius nisi placeat
-        at.
-      </p>
+      <h2>O que nossos clientes dizem</h2>
+      <p>Reunimos alguns feedbacks de nossos clientes em respeito ao Lebraile</p>
     </div>
-    <div fxLayout="row" fxLayout.lt-md="column"  fxLayoutGap="30px">
-      <div fxFlex="33.33" *ngFor="let tm of testimonials">
-          <mat-card class="p-0">
-              <mat-card-content class="">
-                <img class="company-logo" [src]="tm.logo">
-                <p class="text">{{tm.text}}</p>
-                <div class="user-detail">
-                  <span class="toolbar-avatar md user-photo"><img [src]="tm.photo" alt=""></span>
-                  <span class="user-title">{{tm.title}}</span>
-                  <span class="user-subtitle text-muted">{{tm.subtitle}}</span>
-                </div>
-              </mat-card-content>
-          </mat-card>
-      </div>
-    </div>
+  <ngu-carousel
+  [inputs]="carouselOptions">
+    <ngu-item NguCarouselItem *ngFor="let tm of testimonials">
+        <mat-card class="p-0">
+            <mat-card-content class="">
+              <p class="text">{{tm.text}}</p>
+              <div class="user-detail">
+                <span class="toolbar-avatar md user-photo"><img [src]="tm.photo" alt=""></span>
+                <span class="user-title">{{tm.title}}</span>
+                <span class="user-subtitle text-muted">{{tm.subtitle}}</span>
+              </div>
+            </mat-card-content>
+        </mat-card>
+    </ngu-item>
+    
+    <button mat-fab NguCarouselPrev class='carousel-left'><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <button mat-fab NguCarouselNext class='carousel-right'><mat-icon>keyboard_arrow_right</mat-icon></button>
+</ngu-carousel>
   </div>
 </section>
