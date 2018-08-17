@@ -1,0 +1,39 @@
+<section id="contact-section" class="home-section" [ngClass]="{'light-gray': backgroundGray}">
+    <div class="container">
+      <div class="section-header">
+        <h2>Cadastre um novo Equipamento</h2>
+        <p>Cadastre um equipamento para começar a usar a tradução.</p>
+      </div>
+      <form [formGroup]="equipamentoForm">
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
+          <div fxFlex="100">
+            <div class="pb-1">
+              <mat-form-field class="full-width">
+                <input matInput name="ip" [formControl]="equipamentoForm.controls['ip']" placeholder="IP">
+              </mat-form-field>
+              <small *ngIf="equipamentoForm.controls.ip.touched && equipamentoForm.controls.ip.errors?.required" class="form-error-msg">IP é obrigatório</small>
+            </div>
+            <div class="pb-1">
+              <mat-form-field class="full-width">
+                <input matInput name="nome" [formControl]="equipamentoForm.controls['nome']" placeholder="Nome">
+              </mat-form-field>
+              <small *ngIf="equipamentoForm.controls.nome.touched && equipamentoForm.controls.nome.errors?.required" class="form-error-msg">Nome é obrigatorio</small>
+            </div>
+  
+          </div>
+          <div fxFlex="100">
+            <div class="pb-1">
+              <mat-form-field class="full-width">
+                <input matInput name="tempo" [formControl]="equipamentoForm.controls['tempo']" placeholder="Tempo de leitura">
+              </mat-form-field>
+              <small *ngIf="equipamentoForm.controls.subject.touched && equipamentoForm.controls.subject.errors?.required" class="form-error-msg">Tempo de Leitura é obrigatorio</small>
+            </div>
+          </div>
+  
+          <div fxFlex="100">
+            <button mat-fab color="primary" [disabled]="!equipamentoForm.valid"><mat-icon></mat-icon> Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>

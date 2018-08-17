@@ -22,6 +22,7 @@ import { AcaoRoutes } from "./acao.routing";
 import { WINDOW_PROVIDERS } from '../../shared/helpers/window.helper';
 import { TradutoraComponent } from './tradutora/tradutora.component';
 import { AcaoComponent } from './acao.component';
+import { EquipamentoComponent } from './equipamento/equipamento.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { AcaoComponent } from './acao.component';
   ],
   declarations: [
     AcaoComponent,
-    TradutoraComponent
+    TradutoraComponent,
+    EquipamentoComponent
   ],
   providers: [WINDOW_PROVIDERS]
 
