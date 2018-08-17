@@ -1,18 +1,17 @@
 import { Routes } from '@angular/router';
-import { AcaoComponent }   from './views/acao/acao.component';
 
 export const rootRouterConfig: Routes = [
   { 
     path: '', 
-    redirectTo: 'home/portal', 
+    redirectTo: 'home', 
     pathMatch: 'full' 
   },
   { 
-    path: '**', 
+    path: 'home', 
     loadChildren: './views/home/home.module#HomeModule'
   },
   { 
-    path: 'acao/*', 
+    path: 'acao', 
     loadChildren: './views/acao/acao.module#AcaoModule'
   }
 ];

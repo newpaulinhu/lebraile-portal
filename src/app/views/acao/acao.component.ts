@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { LandingFixService } from '../../shared/services/landing-fix.service';
 
 @Component({
   selector: 'app-acao',
-  template: `<app-header></app-header>
-  <app-tradutora></app-tradutora>
-  <app-footer></app-footer>`
+  template: `<app-tradutora></app-tradutora>`
 })
 export class AcaoComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(
+    private fix: LandingFixService
+  ) { }
+  
 
   ngOnInit() {
+    this.fix.addFix();
   }
-
+  ngOnDestroy() {
+    this.fix.removeFix();
+  }
 }

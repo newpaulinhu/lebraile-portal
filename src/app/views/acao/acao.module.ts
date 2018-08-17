@@ -19,10 +19,9 @@ import { NguCarouselModule } from '@ngu/carousel';
 import { SharedModule } from '../../shared/shared.module';
 import { AcaoRoutes } from "./acao.routing";
 
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
 import { WINDOW_PROVIDERS } from '../../shared/helpers/window.helper';
 import { TradutoraComponent } from './tradutora/tradutora.component';
+import { AcaoComponent } from './acao.component';
 
 
 @NgModule({
@@ -46,8 +45,7 @@ import { TradutoraComponent } from './tradutora/tradutora.component';
     RouterModule.forChild(AcaoRoutes)
   ],
   declarations: [
-    HeaderComponent, 
-    FooterComponent, 
+    AcaoComponent,
     TradutoraComponent
   ],
   providers: [WINDOW_PROVIDERS]
