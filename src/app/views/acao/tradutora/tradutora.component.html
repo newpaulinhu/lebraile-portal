@@ -2,18 +2,15 @@
     <div class="container">
       <div class="section-header">
         <h2>Confira nossa tradução</h2>
-        <p>Comece a digitar e veja nossa tradução em tempo real.</p>
       </div>
-      <form [formGroup]="traducaoForm">
         <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
           <div fxFlex="100">
             <div class="pb-1">
               <mat-form-field class="full-width">
-                <textarea matInput row="8" name="message" [formControl]="traducaoForm.controls['message']" placeholder="Mensagem"></textarea>
+                <textarea matInput row="8" name="message"  (keypress)="traduzir($event)" placeholder="Comece a digitar e veja nossa tradução em tempo real."></textarea>
               </mat-form-field>
             </div>
           </div>
         </div>
-      </form>
     </div>
   </section>

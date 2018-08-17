@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '../../../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-equipamento',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equipamento.component.scss']
 })
 export class EquipamentoComponent implements OnInit {
-
-  constructor() { }
+  @Input('backgroundGray') public backgroundGray;
+  equipamentoForm: FormGroup;
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.equipamentoForm = this.fb.group({
+      ip: ['', [Validators.required]],
+      nome: ['', [Validators.required]],
+      tempo: ['', [Validators.required]]
+    })
   }
 
 }
