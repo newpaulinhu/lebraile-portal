@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpParams, HttpClient } from '@angular/common/http';
+import { Letra } from '../models/letra';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class TradutoraService {
 
   constructor(private httpClient: HttpClient) { }
 
-  traduzirLetra(letra: string): Observable<any> {
+  traduzirLetra(letra: string): Observable<Letra> {
     const params = new HttpParams().set('letra', letra);
-    return this.httpClient.get<any>(`${this.apiRoot}/tradutora/letra`, {params: params});
+    return this.httpClient.get<Letra>(`${this.apiRoot}/tradutora/letra`, {params: params});
   }
 }

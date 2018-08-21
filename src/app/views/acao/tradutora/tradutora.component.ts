@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { TradutoraService } from '../../../tradutora.service';
+import { TradutoraService } from '../../../services/tradutora.service';
 
 @Component({
   selector: 'app-tradutora',
@@ -27,7 +27,7 @@ export class TradutoraComponent implements OnInit {
         if(letra){
           console.log(`Chamando Equipamento... Letra: ${letra}`)
           this.tradutoraService.traduzirLetra(letra).subscribe(ret => {
-            console.log(`Chamado Equipamento... Letra: ${ret}`)
+            console.log(ret);
 
             this.ultimaLetra++; 
           });

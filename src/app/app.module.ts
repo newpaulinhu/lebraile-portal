@@ -21,7 +21,7 @@ import {
   MatSnackBarModule
  } from '@angular/material';
  import { WINDOW_PROVIDERS } from './shared/helpers/window.helper';
-import { FlexLayoutModule } from '../../node_modules/@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
