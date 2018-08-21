@@ -22,6 +22,7 @@ import {
  } from '@angular/material';
  import { WINDOW_PROVIDERS } from './shared/helpers/window.helper';
 import { FlexLayoutModule } from '../../node_modules/@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -38,7 +39,7 @@ import { FlexLayoutModule } from '../../node_modules/@angular/flex-layout';
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    HttpModule,
+    HttpClientModule,
     SharedModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false })
   ],
