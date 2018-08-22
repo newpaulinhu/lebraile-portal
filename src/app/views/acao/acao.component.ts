@@ -4,7 +4,6 @@ import { LandingFixService } from '../../shared/services/landing-fix.service';
 @Component({
   selector: 'app-acao',
   template: `
-  <app-equipamento></app-equipamento>
   <app-tradutora></app-tradutora>`
 })
 export class AcaoComponent implements OnInit, OnDestroy {

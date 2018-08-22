@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { Http, HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { rootRouterConfig } from './app.routes';
@@ -18,7 +17,8 @@ import {
   MatInputModule,
   MatRippleModule,
   MatSlideToggleModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDialogModule
  } from '@angular/material';
  import { WINDOW_PROVIDERS } from './shared/helpers/window.helper';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatRippleModule,
     MatSlideToggleModule,
     MatSnackBarModule,
+    MatDialogModule,
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

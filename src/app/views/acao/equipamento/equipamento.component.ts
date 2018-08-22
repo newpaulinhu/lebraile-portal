@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Equipamento } from '../../../models/equipamento';
 import { EquipamentoService } from '../../../services/equipamento.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-equipamento',
@@ -11,18 +12,25 @@ import { EquipamentoService } from '../../../services/equipamento.service';
 export class EquipamentoComponent implements OnInit {
   
   public equipamentoForm: FormGroup;
-  public equipamentos = new Array<Equipamento>();
   
   constructor(
     private fb: FormBuilder,
+    private dialogRef: MatDialogRef<EquipamentoComponent>,
     private equipamentoService: EquipamentoService
   ) { }
 
+  close() {
+    this.dialogRef.close();
+  }
+  
   cadastrarEquipamento(){
-    let equipamento = new Equipamento(this.equipamentoForm.value.id, this.equipamentoForm.value.ip, this.equipamentoForm.value.nome, this.equipamentoForm.value.tempo);
+    const equipamento = new Equipamento(this.equipamentoForm.value.id, 
+                                      this.equipamentoForm.value.ip, 
+                                      this.equipamentoForm.value.nome, 
+                                      this.equipamentoForm.value.tempo);
+    
     this.equipamentoService.cadastrarEquipamento(equipamento).subscribe( res => {
-      alert('equipamento cadastrado com sucesso')
-      this.listarEquipamentos();
+      console.log('equipamento cadastrado com sucesso');
     });
   }
 
@@ -33,14 +41,7 @@ export class EquipamentoComponent implements OnInit {
       nome: ['', [Validators.required]],
       tempo: ['', [Validators.required]]
     });
-
-    this.listarEquipamentos();
   }
 
-  listarEquipamentos(){
-    this.equipamentoService.listarEquipamentos().subscribe( equipamentos => {
-      this.equipamentos = equipamentos;
-    });
-  }
 
 }

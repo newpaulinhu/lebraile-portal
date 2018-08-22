@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { TradutoraService } from '../../../services/tradutora.service';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { EquipamentoComponent } from '../equipamento/equipamento.component';
+import { ListaEquipamentoComponent } from '../equipamento/lista-equipamento.component';
 
 @Component({
   selector: 'app-tradutora',
@@ -14,9 +17,21 @@ export class TradutoraComponent implements OnInit {
   private letras = new Array<string>();
   private ultimaLetra: number = 0;
 
-  constructor(private tradutoraService: TradutoraService) { 
+  constructor(private tradutoraService: TradutoraService,
+    private dialog: MatDialog) {}
+
+  carregarInclusaoEquipamento(){
+
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.open(EquipamentoComponent, dialogConfig);
   }
 
+  listarEquipamentos(){
+
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.open(ListaEquipamentoComponent, dialogConfig);
+  }
+  
   ngOnInit() {
 
 

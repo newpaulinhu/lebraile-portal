@@ -1,11 +1,7 @@
-<section id="contact-section" class="home-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Cadastre um novo Equipamento</h2>
-        <p>Cadastre um equipamento para começar a usar a tradução.</p>
-      </div>
-      <form [formGroup]="equipamentoForm">
-        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
+<h2 mat-dialog-title>Cadastrar Equipamento</h2>
+
+<mat-dialog-content [formGroup]="equipamentoForm">
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
           <div fxFlex="100">
               <div class="pb-1">
                   <mat-form-field class="full-width">
@@ -35,11 +31,9 @@
               <small *ngIf="equipamentoForm.controls.tempo.touched && equipamentoForm.controls.tempo.errors?.required" class="form-error-msg">Tempo de Leitura é obrigatorio</small>
             </div>
           </div>
-  
-          <div fxFlex="100">
-            <button mat-stroked-button color="primary" (click)="cadastrarEquipamento()" [disabled]="!equipamentoForm.valid">Cadastrar</button>
-          </div>
         </div>
-      </form>
-    </div>
-  </section>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+      <button class="mat-raised-button"(click)="close()">Fechar</button>
+      <button class="mat-raised-button mat-primary" (click)="cadastrarEquipamento()">Cadastrar</button>
+    </mat-dialog-actions>

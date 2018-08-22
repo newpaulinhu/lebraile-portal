@@ -12,17 +12,19 @@ import {
   MatInputModule,
   MatRippleModule,
   MatSlideToggleModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDialogModule
  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NguCarouselModule } from '@ngu/carousel';
 import { SharedModule } from '../../shared/shared.module';
-import { AcaoRoutes } from "./acao.routing";
+import { AcaoRoutes } from './acao.routing';
 
 import { WINDOW_PROVIDERS } from '../../shared/helpers/window.helper';
 import { TradutoraComponent } from './tradutora/tradutora.component';
 import { AcaoComponent } from './acao.component';
 import { EquipamentoComponent } from './equipamento/equipamento.component';
+import { ListaEquipamentoComponent } from './equipamento/lista-equipamento.component';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { EquipamentoComponent } from './equipamento/equipamento.component';
     MatButtonModule,
     MatChipsModule,
     MatInputModule,
+    MatDialogModule,
     MatListModule,
     MatRippleModule,
     MatSlideToggleModule,
@@ -48,9 +51,12 @@ import { EquipamentoComponent } from './equipamento/equipamento.component';
   declarations: [
     AcaoComponent,
     TradutoraComponent,
-    EquipamentoComponent
+    EquipamentoComponent,
+    ListaEquipamentoComponent
   ],
-  providers: [WINDOW_PROVIDERS]
+  providers: [WINDOW_PROVIDERS],
+  entryComponents: [EquipamentoComponent,
+    ListaEquipamentoComponent]
 
 })
 export class AcaoModule { }
