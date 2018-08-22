@@ -25,6 +25,7 @@ import { TradutoraComponent } from './tradutora/tradutora.component';
 import { AcaoComponent } from './acao.component';
 import { EquipamentoComponent } from './equipamento/equipamento.component';
 import { ListaEquipamentoComponent } from './equipamento/lista-equipamento.component';
+import { LetraTraduzidaComponent } from './tradutora/letra-traduzida/letra-traduzida.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ListaEquipamentoComponent } from './equipamento/lista-equipamento.compo
     AcaoComponent,
     TradutoraComponent,
     EquipamentoComponent,
-    ListaEquipamentoComponent
+    ListaEquipamentoComponent,
+    LetraTraduzidaComponent
   ],
   providers: [WINDOW_PROVIDERS],
   entryComponents: [EquipamentoComponent,

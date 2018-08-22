@@ -5,6 +5,7 @@ import { TradutoraService } from '../../../services/tradutora.service';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { EquipamentoComponent } from '../equipamento/equipamento.component';
 import { ListaEquipamentoComponent } from '../equipamento/lista-equipamento.component';
+import { Letra } from '../../../models/letra';
 
 @Component({
   selector: 'app-tradutora',
@@ -15,6 +16,7 @@ export class TradutoraComponent implements OnInit {
   @Input('backgroundGray') public backgroundGray;
   private sub: Subscription;
   private letras = new Array<string>();
+  public letrasTraduzidas = new Array<Letra>();
   private ultimaLetra: number = 0;
 
   constructor(private tradutoraService: TradutoraService,
@@ -33,23 +35,17 @@ export class TradutoraComponent implements OnInit {
   }
   
   ngOnInit() {
-
-
     interval(500).pipe(
       map((x) => { 
         let letra = this.letras[this.ultimaLetra];
-
         if(letra){
           console.log(`Chamando Equipamento... Letra: ${letra}`)
-          this.tradutoraService.traduzirLetra(letra).subscribe(ret => {
-            console.log(ret);
-
+          this.tradutoraService.traduzirLetra(letra).subscribe(retornoLetraTraduzida => {
+            console.log(retornoLetraTraduzida);
+            this.letrasTraduzidas.push(retornoLetraTraduzida);
             this.ultimaLetra++; 
           });
         }
-
-
-        console.log();
       })).subscribe();
 
   }
