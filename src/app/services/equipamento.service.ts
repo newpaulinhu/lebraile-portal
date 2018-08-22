@@ -7,7 +7,7 @@ import { Equipamento } from '../models/equipamento';
   providedIn: 'root'
 })
 export class EquipamentoService {
-  private readonly apiRoot = 'http://localhost:8080/lebraile-web';
+  private readonly apiRoot = 'https://lebraile-api.herokuapp.com/lebraile-web';
 
   constructor(private httpClient: HttpClient) { }
 

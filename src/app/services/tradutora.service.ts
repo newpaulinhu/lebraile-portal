@@ -7,7 +7,7 @@ import { Letra } from '../models/letra';
   providedIn: 'root'
 })
 export class TradutoraService {
-  private readonly apiRoot = 'http://localhost:8080/lebraile-web/';
+  private readonly apiRoot = 'https://lebraile-api.herokuapp.com/lebraile-web';
 
   constructor(private httpClient: HttpClient) { }
 
