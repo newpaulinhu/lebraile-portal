@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { TradutoraService } from '../../../services/tradutora.service';
@@ -12,7 +12,7 @@ import { ListaEquipamentoComponent } from '../equipamento/lista-equipamento.comp
   styleUrls: ['./tradutora.component.scss']
 })
 export class TradutoraComponent implements OnInit {
-
+  @Input('backgroundGray') public backgroundGray;
   private sub: Subscription;
   private letras = new Array<string>();
   private ultimaLetra: number = 0;
