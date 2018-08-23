@@ -24,7 +24,7 @@ export class EquipamentoService {
     return this.httpClient.get<Array<Equipamento>>(`${this.apiRoot}/equipamento`);
   }
 
-  enviarLetraParaEquipamento(equipamento: Equipamento, letra: Letra): Observable<Array<Equipamento>> {
-    return this.httpClient.get<Array<Equipamento>>(`${equipamento.ip}?letra=${letra.braile}&tempo=${equipamento.tempoCaractere}`);
+  enviarLetraParaEquipamento(equipamento: Equipamento, letra: Letra){
+    return this.httpClient.get(`http://${equipamento.ip}?letra=${letra.braile}&tempo=${equipamento.tempoCaractere}`);
   }
 }

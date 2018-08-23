@@ -8,7 +8,6 @@ import { ListaEquipamentoComponent } from '../equipamento/lista-equipamento.comp
 import { Letra } from '../../../models/letra';
 import { EquipamentoService } from '../../../services/equipamento.service';
 import { Equipamento } from '../../../models/equipamento';
-import { equalParamsAndUrlSegments } from '../../../../../node_modules/@angular/router/src/router_state';
 
 @Component({
   selector: 'app-tradutora',
@@ -16,11 +15,11 @@ import { equalParamsAndUrlSegments } from '../../../../../node_modules/@angular/
   styleUrls: ['./tradutora.component.scss']
 })
 export class TradutoraComponent implements OnInit {
-  @Input('backgroundGray') public backgroundGray;
-  private sub: Subscription;
-  private letras = new Array<string>();
+  @Input('backgroundGray') 
+  public backgroundGray;
+  
   public letrasTraduzidas = new Array<Letra>();
-  private ultimaLetra: number = 0;
+  private equipamentoLetra = new Map<number, number>();
 
   constructor(
     private tradutoraService: TradutoraService,
@@ -38,24 +37,26 @@ export class TradutoraComponent implements OnInit {
   }
   
   ngOnInit() {
-    
     this.equipamentoService.listarEquipamentos().subscribe( equipamentos => {
       equipamentos.forEach( eqp => {
+        this.equipamentoLetra.set(eqp.id, 0);
         this.registrarIntervaloEquipamento(eqp)
       })
     });
-
   }
-  
+
   registrarIntervaloEquipamento(equipamento: Equipamento){
+    console.log(`Registrando Evento para Equipamento: ${equipamento.ip} `);
     interval(equipamento.tempoCaractere).pipe(
       map((x) => {
-        let letra = this.letras[this.ultimaLetra];
+        let ultimaLetraEquipamento = this.equipamentoLetra.get(equipamento.id);
+        let letra = this.letrasTraduzidas[ultimaLetraEquipamento];
         if(letra){
-          this.tradutoraService.traduzirLetra(letra).subscribe(retornoLetraTraduzida => {
-            this.letrasTraduzidas.push(retornoLetraTraduzida);
-            this.equipamentoService.enviarLetraParaEquipamento(equipamento, retornoLetraTraduzida);
-            this.ultimaLetra++; 
+          console.log(`Enviando Letra: ${letra.caractere} Para o Equipamento: ${equipamento.ip} `);
+          this.equipamentoLetra.set(equipamento.id, ultimaLetraEquipamento + 1 );
+          
+          this.equipamentoService.enviarLetraParaEquipamento(equipamento, letra).subscribe(x => {
+            console.log(`Letra Enviada ${x} `);
           });
         }
       })).subscribe();
@@ -63,7 +64,9 @@ export class TradutoraComponent implements OnInit {
 
   traduzir(event) {
     if (new RegExp('^[a-zA-Z\u00C0-\u00FF ]').test(event.key)){
-      this.letras.push(event.key)
+      this.tradutoraService.traduzirLetra(event.key).subscribe(retornoLetraTraduzida => {
+        this.letrasTraduzidas.push(retornoLetraTraduzida);
+      });
     }
   }
 
