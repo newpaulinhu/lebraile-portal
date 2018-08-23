@@ -9,7 +9,7 @@ import { Letra } from '../../../../models/letra';
 export class LetraTraduzidaComponent implements OnInit {
 
   @Input()
-  private letra: Letra
+  public letra: Letra
   
   constructor() { }
 
