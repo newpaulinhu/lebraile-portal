@@ -30,7 +30,7 @@ export class EquipamentoComponent implements OnInit {
                                       this.equipamentoForm.value.tempo);
     
     this.equipamentoService.cadastrarEquipamento(equipamento).subscribe( res => {
-      console.log('equipamento cadastrado com sucesso');
+      this.dialogRef.close();
     });
   }
 

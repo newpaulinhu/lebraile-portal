@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Equipamento } from '../models/equipamento';
+import { Letra } from '../models/letra';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ export class EquipamentoService {
   constructor(private httpClient: HttpClient) { }
 
   cadastrarEquipamento(equipamento: Equipamento): Observable<Equipamento> {
-    console.log(equipamento)
     return this.httpClient.post<Equipamento>(`${this.apiRoot}/equipamento`, equipamento);
   }
 
@@ -22,5 +22,9 @@ export class EquipamentoService {
 
   listarEquipamentos(): Observable<Array<Equipamento>> {
     return this.httpClient.get<Array<Equipamento>>(`${this.apiRoot}/equipamento`);
+  }
+
+  enviarLetraParaEquipamento(equipamento: Equipamento, letra: Letra): Observable<Array<Equipamento>> {
+    return this.httpClient.get<Array<Equipamento>>(`${equipamento.ip}?letra=${letra.braile}&tempo=${equipamento.tempoCaractere}`);
   }
 }

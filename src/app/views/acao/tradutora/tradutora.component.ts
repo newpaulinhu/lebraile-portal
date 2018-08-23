@@ -6,6 +6,9 @@ import { MatDialogConfig, MatDialog } from '@angular/material';
 import { EquipamentoComponent } from '../equipamento/equipamento.component';
 import { ListaEquipamentoComponent } from '../equipamento/lista-equipamento.component';
 import { Letra } from '../../../models/letra';
+import { EquipamentoService } from '../../../services/equipamento.service';
+import { Equipamento } from '../../../models/equipamento';
+import { equalParamsAndUrlSegments } from '../../../../../node_modules/@angular/router/src/router_state';
 
 @Component({
   selector: 'app-tradutora',
@@ -19,37 +22,44 @@ export class TradutoraComponent implements OnInit {
   public letrasTraduzidas = new Array<Letra>();
   private ultimaLetra: number = 0;
 
-  constructor(private tradutoraService: TradutoraService,
+  constructor(
+    private tradutoraService: TradutoraService,
+    private equipamentoService: EquipamentoService,
     private dialog: MatDialog) {}
 
   carregarInclusaoEquipamento(){
-
     const dialogConfig = new MatDialogConfig();
     this.dialog.open(EquipamentoComponent, dialogConfig);
   }
 
   listarEquipamentos(){
-
     const dialogConfig = new MatDialogConfig();
     this.dialog.open(ListaEquipamentoComponent, dialogConfig);
   }
   
   ngOnInit() {
-    interval(500).pipe(
-      map((x) => { 
+    
+    this.equipamentoService.listarEquipamentos().subscribe( equipamentos => {
+      equipamentos.forEach( eqp => {
+        this.registrarIntervaloEquipamento(eqp)
+      })
+    });
+
+  }
+  
+  registrarIntervaloEquipamento(equipamento: Equipamento){
+    interval(equipamento.tempoCaractere).pipe(
+      map((x) => {
         let letra = this.letras[this.ultimaLetra];
         if(letra){
-          console.log(`Chamando Equipamento... Letra: ${letra}`)
           this.tradutoraService.traduzirLetra(letra).subscribe(retornoLetraTraduzida => {
-            console.log(retornoLetraTraduzida);
             this.letrasTraduzidas.push(retornoLetraTraduzida);
+            this.equipamentoService.enviarLetraParaEquipamento(equipamento, retornoLetraTraduzida);
             this.ultimaLetra++; 
           });
         }
       })).subscribe();
-
   }
-  
 
   traduzir(event) {
     if (new RegExp('^[a-zA-Z\u00C0-\u00FF ]').test(event.key)){
