@@ -1,7 +1,8 @@
 export class Letra {
-    
-    caractere :string 
-    braille:string 
+
+    constructor(
+        public caractere: string,
+        public braille: string){}
 
     
 }
