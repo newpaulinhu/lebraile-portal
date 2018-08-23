@@ -33,6 +33,7 @@
     "@angular/router": "6.0.0",
     "@ngu/carousel": "1.4.2",
     "classlist.js": "1.1.20150312",
+    "font-awesome": "^4.7.0",
     "core-js": "2.4.1",
     "date-fns": "1.28.5",
     "express": "^4.16.3",
