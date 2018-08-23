@@ -2,15 +2,14 @@
 
 <mat-dialog-content>
 
-    <mat-list>
-      <mat-list-item class="md-2-line" *ngFor="let eqp of equipamentos">
-        <div class="md-list-item-text">
-          <h3>{{eqp?.ip}}</h3>
-          <p>{{eqp?.nomeAluno}}</p>
-        </div>
-      </mat-list-item>
-    </mat-list>
-
+    <mat-card class="lebraile-card" *ngFor="let eqp of equipamentos">
+        <mat-card-header> Equipamento:  {{eqp?.nomeAluno}} </mat-card-header>
+        <mat-card-content>
+            <p>IP - {{eqp?.ip}} </p>
+            <p>Tempo de Leitura - {{eqp?.tempoCaractere}} </p>
+        </mat-card-content>
+    </mat-card>
+    
 </mat-dialog-content>
 <mat-dialog-actions>
   <button class="mat-raised-button"(click)="close()">Fechar</button>
