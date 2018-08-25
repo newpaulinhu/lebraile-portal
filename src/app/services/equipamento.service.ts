@@ -25,6 +25,6 @@ export class EquipamentoService {
   }
 
   enviarLetraParaEquipamento(equipamento: Equipamento, letra: Letra){
-    return this.httpClient.get(`http://${equipamento.ip}?letra=${letra.braile}&tempo=${equipamento.tempoCaractere}`);
+    return this.httpClient.get(`http://${equipamento.ip}/braille/?pin=${letra.braile}&tempo=${equipamento.tempoCaractere}`);
   }
 }
