@@ -23,12 +23,25 @@
 }
 .intro-list {
   margin: 0 0 40px;
+  font-size: 22px;
 }
 .intro-product {
   position: relative;
-  top: 100px;
-  left: 60px;
+  left: 60px; 
+  width: 263px;
+  height: 260px;
+  border-radius: 125px;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 }
+
+video {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: -98px;
+  left: -125px;
+}
+
 .intro-product-link {
   position: absolute;
   top: -110px;
