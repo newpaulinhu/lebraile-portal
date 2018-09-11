@@ -17,7 +17,7 @@ export class EquipamentoService {
   }
 
   removerEquipamento(idEquipamento: number) {
-    this.httpClient.delete<any>(`${this.apiRoot}/equipamento/${idEquipamento}`);
+    return this.httpClient.delete<any>(`${this.apiRoot}/equipamento/${idEquipamento}`);
   }
 
   listarEquipamentos(): Observable<Array<Equipamento>> {

@@ -24,7 +24,12 @@ export class ListaEquipamentoComponent implements OnInit {
   }
 
   removerEquipamento(id: number){
-    this.equipamentoService.removerEquipamento(id);
+    this.equipamentoService.removerEquipamento(id).subscribe(res => {
+      console.log('Equipamento removido com sucesso!')
+      this.equipamentoService.listarEquipamentos().subscribe( equipamentos => {
+        this.equipamentos = equipamentos;
+      });
+    });
   }
 
   close() {
