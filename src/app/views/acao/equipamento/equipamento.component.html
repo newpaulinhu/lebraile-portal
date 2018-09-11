@@ -3,12 +3,6 @@
 <mat-dialog-content [formGroup]="equipamentoForm">
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutWrap="wrap">
           <div fxFlex="100">
-              <div class="pb-1">
-                  <mat-form-field class="full-width">
-                    <input matInput name="id" [formControl]="equipamentoForm.controls['id']" placeholder="ID">
-                  </mat-form-field>
-                  <small *ngIf="equipamentoForm.controls.id.touched && equipamentoForm.controls.id.errors?.required" class="form-error-msg">ID é obrigatório</small>
-                </div>
             <div class="pb-1">
               <mat-form-field class="full-width">
                 <input matInput name="ip" [formControl]="equipamentoForm.controls['ip']" placeholder="IP">
@@ -26,7 +20,7 @@
           <div fxFlex="100">
             <div class="pb-1">
               <mat-form-field class="full-width">
-                <input matInput name="tempo" [formControl]="equipamentoForm.controls['tempo']" placeholder="Tempo de leitura">
+                <input matInput name="tempo" type="number" [formControl]="equipamentoForm.controls['tempo']" placeholder="Tempo de leitura">
               </mat-form-field>
               <small *ngIf="equipamentoForm.controls.tempo.touched && equipamentoForm.controls.tempo.errors?.required" class="form-error-msg">Tempo de Leitura é obrigatorio</small>
             </div>

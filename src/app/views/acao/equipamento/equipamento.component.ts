@@ -24,8 +24,7 @@ export class EquipamentoComponent implements OnInit {
   }
   
   cadastrarEquipamento(){
-    const equipamento = new Equipamento(this.equipamentoForm.value.id, 
-                                      this.equipamentoForm.value.ip, 
+    const equipamento = new Equipamento(this.equipamentoForm.value.ip, 
                                       this.equipamentoForm.value.nome, 
                                       this.equipamentoForm.value.tempo);
     
@@ -36,7 +35,6 @@ export class EquipamentoComponent implements OnInit {
 
   ngOnInit() {
     this.equipamentoForm = this.fb.group({
-      id: ['', [Validators.required]],
       ip: ['', [Validators.required]],
       nome: ['', [Validators.required]],
       tempo: ['', [Validators.required]]
