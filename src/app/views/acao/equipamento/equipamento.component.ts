@@ -24,7 +24,8 @@ export class EquipamentoComponent implements OnInit {
   }
   
   cadastrarEquipamento(){
-    const equipamento = new Equipamento(this.equipamentoForm.value.ip, 
+    const equipamento = new Equipamento(null, 
+                                      this.equipamentoForm.value.ip, 
                                       this.equipamentoForm.value.nome, 
                                       this.equipamentoForm.value.tempo);
     
