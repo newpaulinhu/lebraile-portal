@@ -23,6 +23,9 @@ export class ListaEquipamentoComponent implements OnInit {
     });
   }
 
+  removerEquipamento(id: number){
+    this.equipamentoService.removerEquipamento(id);
+  }
 
   close() {
     this.dialogRef.close();

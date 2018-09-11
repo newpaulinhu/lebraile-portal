@@ -8,7 +8,7 @@ import { Letra } from '../models/letra';
   providedIn: 'root'
 })
 export class EquipamentoService {
-  private readonly apiRoot = 'https://lebraile-api.herokuapp.com/lebraile-web';
+  private readonly apiRoot = 'https://lebraile-api.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 
