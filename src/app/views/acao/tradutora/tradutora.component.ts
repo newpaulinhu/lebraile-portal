@@ -19,7 +19,7 @@ export class TradutoraComponent implements OnInit {
   public backgroundGray;
   
   public letrasTraduzidas = new Array<Letra>();
-  private equipamentoLetra = new Map<number, number>();
+  private equipamentoLetra = new Map<string, number>();
 
   constructor(
     private tradutoraService: TradutoraService,
@@ -39,7 +39,7 @@ export class TradutoraComponent implements OnInit {
   ngOnInit() {
     this.equipamentoService.listarEquipamentos().subscribe( equipamentos => {
       equipamentos.forEach( eqp => {
-        this.equipamentoLetra.set(eqp.id, 0);
+        this.equipamentoLetra.set(eqp.ip, 0);
         this.registrarIntervaloEquipamento(eqp)
       })
     });
@@ -49,11 +49,11 @@ export class TradutoraComponent implements OnInit {
     console.log(`Registrando Evento para Equipamento: ${equipamento.ip} `);
     interval(equipamento.tempoCaractere).pipe(
       map((x) => {
-        let ultimaLetraEquipamento = this.equipamentoLetra.get(equipamento.id);
+        let ultimaLetraEquipamento = this.equipamentoLetra.get(equipamento.ip);
         let letra = this.letrasTraduzidas[ultimaLetraEquipamento];
         if(letra){
           console.log(`Enviando Letra: ${letra.caractere} Para o Equipamento: ${equipamento.ip} `);
-          this.equipamentoLetra.set(equipamento.id, ultimaLetraEquipamento + 1 );
+          this.equipamentoLetra.set(equipamento.ip, ultimaLetraEquipamento + 1 );
           
           this.equipamentoService.enviarLetraParaEquipamento(equipamento, letra).subscribe(x => {
             console.log(`Letra Enviada ${x} `);
