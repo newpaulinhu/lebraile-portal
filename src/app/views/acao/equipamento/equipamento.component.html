@@ -5,9 +5,9 @@
           <div fxFlex="100">
             <div class="pb-1">
               <mat-form-field class="full-width">
-                <input matInput name="ip" [formControl]="equipamentoForm.controls['ip']" placeholder="IP">
+                <input matInput name="ip" [formControl]="equipamentoForm.controls['ip']" placeholder="Código do Equipamento">
               </mat-form-field>
-              <small *ngIf="equipamentoForm.controls.ip.touched && equipamentoForm.controls.ip.errors?.required" class="form-error-msg">IP é obrigatório</small>
+              <small *ngIf="equipamentoForm.controls.ip.touched && equipamentoForm.controls.ip.errors?.required" class="form-error-msg">Código do Equipamento é obrigatório</small>
             </div>
             <div class="pb-1">
               <mat-form-field class="full-width">
@@ -20,7 +20,7 @@
           <div fxFlex="100">
             <div class="pb-1">
               <mat-form-field class="full-width">
-                <input matInput name="tempo" type="number" [formControl]="equipamentoForm.controls['tempo']" placeholder="Tempo de leitura">
+                <input matInput name="tempo" maxlength="3" [formControl]="equipamentoForm.controls['tempo']" placeholder="Tempo de leitura">
               </mat-form-field>
               <small *ngIf="equipamentoForm.controls.tempo.touched && equipamentoForm.controls.tempo.errors?.required" class="form-error-msg">Tempo de Leitura é obrigatorio</small>
             </div>

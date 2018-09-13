@@ -27,7 +27,7 @@ export class EquipamentoComponent implements OnInit {
     const equipamento = new Equipamento(null, 
                                       this.equipamentoForm.value.ip, 
                                       this.equipamentoForm.value.nome, 
-                                      this.equipamentoForm.value.tempo);
+                                      (this.equipamentoForm.value.tempo * 10)) ;
     
     this.equipamentoService.cadastrarEquipamento(equipamento).subscribe( res => {
       this.dialogRef.close();
@@ -40,6 +40,8 @@ export class EquipamentoComponent implements OnInit {
       nome: ['', [Validators.required]],
       tempo: ['', [Validators.required]]
     });
+
+    this.equipamentoForm.value.tempo = 50;
   }
 
 
