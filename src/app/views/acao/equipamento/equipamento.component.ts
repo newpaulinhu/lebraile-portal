@@ -40,8 +40,6 @@ export class EquipamentoComponent implements OnInit {
       nome: ['', [Validators.required]],
       tempo: ['', [Validators.required]]
     });
-
-    this.equipamentoForm.value.tempo = 50;
   }
 
 

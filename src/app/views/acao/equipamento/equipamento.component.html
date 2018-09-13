@@ -20,7 +20,7 @@
           <div fxFlex="100">
             <div class="pb-1">
               <mat-form-field class="full-width">
-                <input matInput name="tempo" maxlength="3" [formControl]="equipamentoForm.controls['tempo']" placeholder="Tempo de leitura">
+                <input matInput name="tempo" maxlength="3" [formControl]="equipamentoForm.controls['tempo']" placeholder="Tempo de leitura" value="100">
               </mat-form-field>
               <small *ngIf="equipamentoForm.controls.tempo.touched && equipamentoForm.controls.tempo.errors?.required" class="form-error-msg">Tempo de Leitura é obrigatorio</small>
             </div>
