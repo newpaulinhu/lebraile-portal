@@ -13,7 +13,7 @@
           <br>
           <div fxFlex="100" class="pb-1">
               <mat-form-field class="full-width">
-                <textarea matInput row="8" name="message"  (keypress)="traduzir($event)" placeholder="Comece a digitar e veja nossa tradução em tempo real."></textarea>
+                <textarea matInput row="8" name="message"  (change)="traduzir($event)" placeholder="Comece a digitar e veja nossa tradução em tempo real."></textarea>
               </mat-form-field>
           </div>
         </div>
