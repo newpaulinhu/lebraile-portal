@@ -1,7 +1,7 @@
 <section id="contact-section" class="home-section" [ngClass]="{'light-gray': backgroundGray}">
     <div class="container">
       <div class="section-header">
-        <h2>Comece Agora!</h2>
+        <h2>Comece Agora!  </h2>
         <div fxFlex="18"  class="pb-1">
           <button class="mat-raised-button mat-primary" (click)="limpar(); mensagem.value=''" > Limpar </button>
         </div>
@@ -14,6 +14,8 @@
     </div>
   </div>
 
+   <br>
+   <br>
    <app-letra-traduzida *ngFor="let letra of letrasTraduzidas" [letra]="letra" ></app-letra-traduzida>
 
     <br>
