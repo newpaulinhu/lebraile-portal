@@ -63,8 +63,8 @@ export class TradutoraComponent implements OnInit {
   }
 
   traduzir(event) {
-    if (new RegExp('^[a-zA-Z\u00C0-\u00FF ]').test(event.key)){
-      this.tradutoraService.traduzirLetra(event.key).subscribe(retornoLetraTraduzida => {
+    if (new RegExp('^[a-zA-Z\u00C0-\u00FF ]').test(event.target.value)){
+      this.tradutoraService.traduzirLetra(event.target.value).subscribe(retornoLetraTraduzida => {
         this.letrasTraduzidas.push(retornoLetraTraduzida);
       });
     }
