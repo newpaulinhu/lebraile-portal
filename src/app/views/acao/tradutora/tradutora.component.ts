@@ -62,6 +62,10 @@ export class TradutoraComponent implements OnInit {
       })).subscribe();
   }
 
+  limpar() {
+    this.letrasTraduzidas = new Array<Letra>();
+  }
+
   traduzir(event) {
     let arrChar = event.target.value.split('');
     let letra = arrChar[arrChar.length -1];
