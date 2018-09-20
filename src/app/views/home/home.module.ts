@@ -24,6 +24,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { BuildComponent } from './build/build.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
     PortfolioComponent, 
     ServicesComponent, 
     ContactComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
+    BuildComponent
   ],
   providers: []
 
