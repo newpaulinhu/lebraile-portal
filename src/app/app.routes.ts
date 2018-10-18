@@ -13,6 +13,10 @@ export const rootRouterConfig: Routes = [
   { 
     path: 'acao', 
     loadChildren: './views/acao/acao.module#AcaoModule'
+  },
+  { 
+    path: 'montar', 
+    loadChildren: './views/montar/montar.module#MontarModule'
   }
 ];
 

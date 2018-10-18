@@ -1,0 +1,38 @@
+<section id="portfolio-section" class="portfolio home-section" [ngClass]="{'light-gray': backgroundGray}">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nosso Projeto</h2>
+        <p>O Lebraile desde seu início passou por muitas transformações, desde seus objetivos enquanto equipamento e, 
+          principalmente das estruturas de software e hardware. As mudanças foram necessárias para se obter um equipamento com melhor custo, 
+          qualidade e com um design que facilitasse sua portabilidade, hoje contamos com uma versão open hardware, open source e open design. 
+          Abaixo é possível ver o processo para montar o seu proprio lebraile 
+        </p>
+      </div>
+  
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutWrap="nowrap" fxLayoutGap="30px">
+        <div fxFlex="66.66">
+          <mat-card class="p-0 m-0">
+            <img mat-card-image src="assets/images/monte-seu.png">
+            <mat-card-content>
+              <h5><strong>Primeiro Protótipo</strong></h5>
+              <p>
+              Nosso equipamento conta com componentes muito faceis de se utilizar, linha de nailon , micro motores reutilizados de helicoptero de brinquedo, e um modelo impresso na 3D que pode ser baixado aqui
+              </p><br><br><br><br>
+              <mat-divider class="mb-1"></mat-divider>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div fxFlex="33.33">
+          <mat-card class="p-0 m-0">
+            <mat-card-content>
+              <h5><strong>Código Fonte</strong></h5>
+              <p>
+                  O Código fonte de nossa tradutora pode ser encontrado no github, acompanhe aqui
+              </p><br><br><br><br>
+              <mat-divider class="mb-1"></mat-divider>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
